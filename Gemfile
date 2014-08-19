@@ -41,3 +41,5 @@ gem 'erb2haml', :group => :development
 
 gem 'bootstrap-sass'
 gem 'pg'
+
+gem 'devise'
