@@ -1,6 +1,9 @@
 .row
-  .question
-    =@question.text
-    =@question.rating
-
-  =render @question.answers
+  .panel.panel-primary
+    .panel-heading
+      %h3.panel-title
+        =@question.text
+    %ul.list-group
+      =render @question.answers
+    .panel-footer
+      =@question.rating
