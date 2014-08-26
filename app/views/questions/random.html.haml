@@ -1,2 +1,6 @@
-.question =@question.text
-=@question.answers
+.row
+  .question
+    =@question.text
+    =@question.rating
+
+  =render @question.answers

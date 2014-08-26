@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       resources :answers
   end
 
+  get 'question/' => 'questions#random'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
