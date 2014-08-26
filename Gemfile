@@ -43,3 +43,4 @@ gem 'bootstrap-sass'
 gem 'pg'
 
 gem 'devise'
+gem 'randumb'

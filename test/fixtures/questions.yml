@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  text: MyText
-  rating: 1.5
-  deviation: 1.5
-  volatility: 1.5
+  text: Fa schiuma ma non è un sapone, che cos'è?
+  rating: 1500
+  deviation: 50
+  volatility: 0.31
+  tag: clerici
 
 two:
-  text: MyText
-  rating: 1.5
-  deviation: 1.5
-  volatility: 1.5
+  text: Con quale nome è meglio conosciuto il polivinilcloruro?
+  rating: 1600
+  deviation: 15
+  volatility: 0.55
+  tag: amadeus

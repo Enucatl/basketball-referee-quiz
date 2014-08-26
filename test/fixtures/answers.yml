@@ -1,7 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  question_id: 
+  question: one
+  text: la borra!
+  is_correct?: true
 
 two:
-  question_id: 
+  question: one
+  text: la barra
+  is_correct?: false
+
+three:
+  question: two
+  text: per me è la cipolla
+  is_correct?: true
+
+four:
+  question: two
+  text: PVC
+  is_correct?: false
