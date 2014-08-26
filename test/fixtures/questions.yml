@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  text: MyText
+  rating: 1.5
+  deviation: 1.5
+  volatility: 1.5
+
+two:
+  text: MyText
+  rating: 1.5
+  deviation: 1.5
+  volatility: 1.5
