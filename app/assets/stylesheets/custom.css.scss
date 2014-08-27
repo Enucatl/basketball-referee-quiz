@@ -69,6 +69,7 @@ body {
 }
 
 
+
 /*
  * Main content
  */
@@ -106,3 +107,20 @@ body {
   border-radius: 50%;
 }
 
+input[type=radio] {
+    display: none;
+}
+
+label.list-group-item {
+    color: $list-group-link-color;
+    .list-group-item-heading {
+        color: $list-group-link-heading-color;
+    }
+    // Hover state
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        color: $list-group-link-hover-color;
+        background-color: $list-group-hover-bg;
+    }
+}

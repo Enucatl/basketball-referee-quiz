@@ -1,9 +1,11 @@
 .row
-  .panel.panel-primary
+  =form_tag({controller: "questions", action: "check"},
+    {class: "panel panel-primary", method: "post"}) do
     .panel-heading
       %h3.panel-title
         =@question.text
-    %ul.list-group
+    .list-group
       =render @question.answers
+      =hidden_field_tag "time", 0
     .panel-footer
       =@question.rating

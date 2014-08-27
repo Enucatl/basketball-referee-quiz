@@ -6,11 +6,8 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
 
-  resources :questions do
-      resources :answers
-  end
-
   get 'question/' => 'questions#random'
+  post 'question/check' => 'questions#check'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
