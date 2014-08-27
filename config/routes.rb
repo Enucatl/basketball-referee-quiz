@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'question/' => 'questions#random'
   post 'question/check' => 'questions#check'
 
+  devise_for :users, controllers: {registrations: "users/registrations"}
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

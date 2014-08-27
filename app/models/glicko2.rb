@@ -69,4 +69,25 @@ module Glicko2
         end
         Math.exp(big_A / 2)
     end
+
+    def self.new_rating mu, phi, result, new_volatility, v, g, e
+        phi_star = Math.sqrt(phi ** 2 + new_volatility ** 2)
+        new_phi = 1 / Math.sqrt(1 / phi_star ** 2 + 1 / v)
+        new_mu = mu + new_phi ** 2 * g * (result - e)
+        return new_mu, new_phi
+    end
+
+    def self.update_rating rating, deviation, volatility, rating_opp, deviation_opp, result
+        mu, phi = self.scale_old2new rating, deviation
+        mu_opp, phi_opp = self.scale_old2new rating_opp, deviation_opp
+        g = self.g phi
+        e = self.E mu, mu_opp, phi_opp
+        v = self.v mu, mu_opp, phi_opp
+        delta = self.delta result, mu, mu_opp, phi_opp
+        new_volatility = self.new_volatility volatility, phi, delta, v
+        new_mu, new_phi = self.new_rating mu, phi, result, new_volatility, v, g, e
+        new_rating, new_deviation = self.scale_new2old new_mu, new_phi
+        return new_rating, new_deviation, new_volatility
+    end
+
 end
