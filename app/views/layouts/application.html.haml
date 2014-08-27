@@ -17,16 +17,19 @@
           %a.navbar-brand{:href => "/"} FIBA referee quiz
         .navbar-collapse.collapse
           %ul.nav.navbar-nav.navbar-right
-            %li
-              %a{:href => "#"} Dashboard
-            %li
-              %a{:href => "#"} Settings
-            %li
-              %a{:href => "#"} Profile
-            %li
-              %a{:href => "#"} Help
-          %form.navbar-form.navbar-right
-            %input.form-control{:placeholder => "Search...", :type => "text"}/
+            - if user_signed_in?
+              %li
+                %a{href: edit_user_registration_path}
+                  Edit profile
+                  %strong
+                    =current_user.email
+              %li
+                %a{href: destroy_user_session_path} Logout
+            - else
+              %li
+                %a{href: new_user_registration_path} Sign up
+              %li
+                %a{href: new_user_session_path} Login
     .container-fluid
       .row
         .col-sm-3.col-md-2.sidebar
