@@ -19,17 +19,17 @@
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               %li
-                %a{href: edit_user_registration_path}
+                =link_to edit_user_registration_path do
                   Edit profile
                   %strong
                     =current_user.email
               %li
-                %a{href: destroy_user_session_path} Logout
+                =link_to "Logout", destroy_user_session_path, method: :delete
             - else
               %li
-                %a{href: new_user_registration_path} Sign up
+                =link_to "Sign up", new_user_registration_path
               %li
-                %a{href: new_user_session_path} Login
+                =link_to "Login", new_user_session_path
     .container-fluid
       .row
         .col-sm-3.col-md-2.sidebar

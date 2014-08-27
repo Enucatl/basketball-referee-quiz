@@ -17,7 +17,7 @@ module Glicko2
     end
 
     def self.g phi
-        1 / Math.sqrt(1 + 3 * phi ** 2 / Math.PI ** 2)
+        1 / Math.sqrt(1 + 3 * phi ** 2 / Math::PI ** 2)
     end
 
     def self.E mu, mu_opp, phi_opp
@@ -35,8 +35,8 @@ module Glicko2
 
     def self.new_volatility volatility, phi, delta, v
         a = Math.log(volatility ** 2)
-        def f x
-            ex = Math.exp(x)
+        def self.f x 
+            ex = Math.exp x 
             up1 = ex * (delta ** 2 - phi ** 2 - v - ex)
             up2 = (x - a)
             down1 = 2 * (phi ** 2 + v + ex) ** 2
