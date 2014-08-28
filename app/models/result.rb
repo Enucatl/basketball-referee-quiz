@@ -21,4 +21,18 @@ module Result
             return 0.5 * Math.exp(@@k * (time - @@t1))
         end
     end
+
+    def self.get_time(result)
+        if result == 1
+            return @@t0
+        elsif result < 1 and result > 0.5
+            return 2 * @@delta * (1 - result)
+        else
+            return -@@tau * Math.log(2 * result) 
+        end
+    end
+
+    def self.get_t0
+        @@t0
+    end
 end

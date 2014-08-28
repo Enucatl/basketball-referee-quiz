@@ -4,19 +4,36 @@ class QuestionsController < ApplicationController
 
     def random
         @question = Question.order_by_rand.first
+        @t0 = Result::get_t0
+        @if_win = Glicko2::update_rating(
+            current_user.rating,
+            current_user.deviation,
+            current_user.volatility,
+            @question.rating,
+            @question.deviation, 1)[0] - current_user.rating
+        @if_lose = Glicko2::update_rating(
+            current_user.rating,
+            current_user.deviation,
+            current_user.volatility,
+            @question.rating,
+            @question.deviation, 0)[0] - current_user.rating
+        mu, _ = Glicko2::scale_old2new(
+                current_user.rating,
+                current_user.deviation)
+        mu_opp, phi_opp = Glicko2::scale_old2new(
+                @question.rating,
+                @question.deviation)
+        @t_even = Result::get_time(Glicko2::e(mu, mu_opp, phi_opp))
     end
 
     def check
         answer = Answer.find(params[:answer_id])
         question = answer.question
         if answer.is_correct?
-            puts "RIGHT!!!"
             result = Result::get_result params[:time].to_f
         else
-            puts "WRONG"
             result = 0
         end
-        puts current_user.to_json
         new_user_rating, new_user_deviation, new_user_volatility = Glicko2::update_rating(
             current_user.rating,
             current_user.deviation,

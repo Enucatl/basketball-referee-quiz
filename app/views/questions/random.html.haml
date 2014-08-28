@@ -1,11 +1,42 @@
-.row
-  =form_tag({controller: "questions", action: "check"},
-    {class: "panel panel-primary", method: "post"}) do
-    .panel-heading
-      %h3.panel-title
-        =@question.text
-    .list-group
-      =render @question.answers
-      =hidden_field_tag "time", 0
-    .panel-footer
-      =@question.rating
+.row.main
+  .col-sm-8.col-md-9
+    =form_tag({controller: "questions", action: "check"},
+      {class: "panel panel-primary", method: "post"}) do
+      .panel-heading
+        %h3.panel-title
+          =@question.text
+          [<strong>#{@question.rating.to_i}</strong>]
+      .list-group
+        =render @question.answers
+        =hidden_field_tag "time", 0
+      .panel-footer
+        %small
+          .checkbox
+            %label
+              %input{type: "checkbox"} This is my last question
+  .col-sm-4.col-md-3
+    .panel.panel-primary
+      .panel-heading
+        %h3.panel-title.text-center
+          Your rating:
+          %strong
+            =current_user.rating.to_i
+      %table.table.text-center
+        %thead
+          %tr
+            %th.text-center Solution
+            %th.text-center Rating
+        %tbody
+          %tr
+            %td
+              #{@t0.to_i} s
+            %td
+              +#{@if_win.round(1)}
+          %tr
+            %td
+              #{@t_even.round(1)} s
+            %td unchanged
+          %tr
+            %td failed
+            %td
+              =@if_lose.round(1)

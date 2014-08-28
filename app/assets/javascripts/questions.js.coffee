@@ -4,7 +4,7 @@
 
 $ ->
     time_started = new Date()
-    $("input").click ->
+    $("input:radio").click ->
         time_ended = new Date()
         answer_time = (time_ended - time_started) / 1000
         $("input#time").val answer_time
