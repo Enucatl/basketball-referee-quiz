@@ -6,6 +6,7 @@ one:
   deviation: 50
   volatility: 0.31
   tag: clerici
+  explanation: cos'è la barra? Che cos'è la barra? COS'È LA BARRA????
 
 two:
   text: Con quale nome è meglio conosciuto il polivinilcloruro?
@@ -13,3 +14,4 @@ two:
   deviation: 15
   volatility: 0.55
   tag: amadeus
+  explanation: Non siamo in un villaggio turistico.

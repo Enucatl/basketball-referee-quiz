@@ -5,10 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 one: 
+    username: CiccioPasticcio
     email: ciccio@pasticcio.com
     rating: 1550
     deviation: 34
     volatility: 0.3
+    break_on_success: false
+    break_on_failure: true
 
 # column: value
 #
