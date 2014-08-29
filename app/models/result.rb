@@ -35,4 +35,10 @@ module Result
     def self.get_t0
         @@t0
     end
+    def self.get_t1
+        @@t1
+    end
+    def self.get_tau
+        @@tau
+    end
 end

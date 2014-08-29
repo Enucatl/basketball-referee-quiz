@@ -36,6 +36,8 @@
           %ul.nav.nav-sidebar
             %li{class: active?(root_path)}
               %a{:href => "/"} Profile
+            %li{class: active?(guide_path)}
+              =link_to "Guide", guide_path
             %li{class: active?(question_path)}
               %a{:href => question_path} Questions
         .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main

@@ -56,6 +56,20 @@ class QuestionsController < ApplicationController
             rating: new_question_rating,
             deviation: new_question_deviation,
             volatility: new_question_volatility)
-        redirect_to action: "random"
+        if answer.is_correct? and current_user.break_on_success
+            redirect_to action: "explain", question_id: @question.id, selected_answer_id: params[:answer_id]
+        elsif not answer.is_correct? and current_user.break_on_failure
+            redirect_to action: "explain", question_id: @question.id, selected_answer_id: params[:answer_id]
+        elsif params[:is_last_question]
+            redirect_to root_path
+        else
+            redirect_to action: "random"
+        end
+    end
+
+    def explain
+        @question = Question.find params[:question_id]
+        @answers = @question.answers
+        @selected_answer_id = params[:selected_answer_id]
     end
 end

@@ -5,8 +5,10 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#home'
 
+  get 'guide/' => 'static_pages#guide'
   get 'question/' => 'questions#random'
   post 'question/check' => 'questions#check'
+  get 'question/explain' => 'questions#explain'
 
   devise_for :users, controllers: {registrations: "users/registrations"}
 

@@ -10,10 +10,11 @@
         =render @question.answers
         =hidden_field_tag "time", 0
       .panel-footer
-        %small
-          .checkbox
-            %label
-              %input{type: "checkbox"} This is my last question
+        .btn-group{data: {toggle: "buttons"}}
+          %label.btn.btn-default
+            =check_box_tag "is_last_question"
+            %small
+              This is my last question
   .col-sm-4.col-md-3
     .panel.panel-primary
       .panel-heading
