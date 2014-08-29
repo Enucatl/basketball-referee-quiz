@@ -1,1 +1,15 @@
-%h2 This is the home
+.row.main
+  .col-sm-10.col-md-8
+    %h1 The FIBA basketball rules challenge
+    %p
+      This page is inspired by the 
+      %a{href: "http://chess.emrald.net/"} chess tactics server.
+      We provide #{Question.count} questions on the rules of basketball, according to the FIBA rules and official interpretations 2014.
+    %p
+      Your performance is measured by the
+      %a{href: "http://www.glicko.net/glicko.html"} Glicko-2 rating system
+      which takes into account both the difficulty of each question and the time you take to solve it.
+    %p
+      You need a valid email address to
+      =link_to "register", new_user_registration_path
+      and test your knowledge of the rules of basketball.

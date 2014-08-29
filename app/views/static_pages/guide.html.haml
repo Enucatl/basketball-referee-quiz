@@ -1,24 +1,27 @@
 .row.main
-  %h1 Guide
-  %p
-    This website is inspired by the 
-    %a{href: "http://chess.emrald.net"} Chess Tactics Server.
-    Instead of chess problems, here you answer questions about the rules of basketball, according to the official FIBA rules and interpretations 2014.
-  
-  %p
-    Once you log in, you can click on
-    =link_to "questions", question_path
-    to start answering questions. Simply click on the answer that you think is correct.
+  .col-sm-10.col-md-8
+    %h1 Guide
+    %p
+      This website is inspired by the 
+      %a{href: "http://chess.emrald.net"} Chess Tactics Server.
+      Instead of chess problems, here you answer questions about the rules of basketball, according to the official FIBA rules and interpretations 2014.
+    
+    %p
+      Once you
+      =link_to "log in", new_user_session_path
+      you can click on
+      =link_to "questions", question_path
+      to start answering questions. Simply click on the answer that you think is correct.
 
-  %h2 Rating
-  %p
-    Both players and questions are rated according to the
-    %a{href: "http://www.glicko.net/glicko.html"} Glicko-2 rating system.
-    Players and questions have a rating (starts at 1500) and rating deviation (starts at 350), which is a measure of the degree of confidence in your current rating. As you solve more and more problems your deviation decreases. When you have a large deviation your rating changes a lot each time that you solve a problem.
-    When you fail to solve a question, the question "wins" the challenge with a 0-1 score.
-    When you give the right answer, the points are awarded according to the time it took to answer the question.
+    %h2 Rating
+    %p
+      Both players and questions are rated according to the
+      %a{href: "http://www.glicko.net/glicko.html"} Glicko-2 rating system.
+      Players and questions have a rating (starts at 1500) and rating deviation (starts at 350), which is a measure of the degree of confidence in your current rating. As you solve more and more problems your deviation decreases. When you have a large deviation your rating changes a lot each time that you solve a problem.
+      When you fail to solve a question, the question "wins" the challenge with a 0-1 score.
+      When you give the right answer, the points are awarded according to the time it took to answer the question.
 
-  %h2 Time
-  If you solve the question in less than #{@t0} seconds, you get the full 1-0 score. After #{@t0} seconds the score is linearly decreasing with 1/2-1/2 at #{@t1} seconds. After #{@t1} seconds, the decrease of the result is exponential with a 
-  %a{href: "http://en.wikipedia.org/wiki/Exponential_decay#Mean_lifetime"} time constant
-  of #{@tau} seconds.
+    %h2 Time
+    If you solve the question in less than #{@t0} seconds, you get the full 1-0 score. After #{@t0} seconds the score is linearly decreasing with 1/2-1/2 at #{@t1} seconds. After #{@t1} seconds, the decrease of the result is exponential with a 
+    %a{href: "http://en.wikipedia.org/wiki/Exponential_decay#Mean_lifetime"} time constant
+    of #{@tau} seconds.
