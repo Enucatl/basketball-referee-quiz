@@ -1,4 +1,4 @@
-.row.main
+.row
   .col-sm-8.col-md-9
     .panel.panel-primary
       .panel-heading
@@ -9,6 +9,10 @@
         - @answers.each do |answer|
           %div{class: "list-group-item " + explain_answer_class(@selected_answer_id, answer.id, answer.is_correct?)}
             =answer.text
-      .panel-footer
-        =@question.explanation
-        =link_to "next question", question_path, class: "btn btn-primary"
+.row
+  .col-sm-8.col-md-9
+    %h2 Reference
+    %p
+      =@question.explanation
+    %p
+      =link_to "next question", question_path, class: "btn btn-primary"
