@@ -6,7 +6,8 @@
 #
 one: 
     username: CiccioPasticcio
-    email: ciccio@pasticcio.com
+    email: ciccio@pst.com
+    encrypted_password: <%= User.new.send(:password_digest, "FxE6YDOLR8omCm5leRdN") %>
     rating: 1550
     deviation: 34
     volatility: 0.3
