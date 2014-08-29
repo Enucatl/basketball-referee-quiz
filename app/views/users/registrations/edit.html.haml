@@ -1,0 +1,44 @@
+.row.main
+  .col-sm-6.col-md-5
+    %h2
+      Edit #{resource_name.to_s.humanize}
+    %h3 Profile info
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class: "form-horizontal") do |f|
+      .form-group
+        = devise_error_messages!
+      .form-group
+        = f.text_field :username, autofocus: true, placeholder: "username", class: "form-control"
+      .form-group
+        = f.email_field :email, placeholder: "email", class: "form-control"
+        - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+          %p.bg-warning
+            Currently waiting confirmation for: #{resource.unconfirmed_email}
+      .form-group
+        = f.password_field :password, autocomplete: "off", placeholder: "password", class: "form-control"
+      .form-group
+        = f.password_field :password_confirmation, autocomplete: "off", placeholder: "confirm password", class: "form-control"
+        %span.help-block leave both blank if you don't want to change your password
+      .form-group
+        = f.password_field :current_password, autocomplete: "off", placeholder: "current password", class: "form-control"
+        %span.help-block current password needed to apply changes
+      .form-group
+        = f.submit "Update", class: "btn btn-primary btn-block"
+    %h3 Quiz settings
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class: "form-horizontal") do |f|
+      .form-group
+        = devise_error_messages!
+      .input-group
+        %span.input-group-addon
+          = check_box_tag "break_on_success", "yes", current_user.break_on_success
+        break on success
+      .input-group
+        .checkbox
+          %span.input-group-addon
+            %label
+              = check_box_tag "break_on_failure", "yes", current_user.break_on_failure
+              break on failure
+      .form-group
+        = f.submit "Update", class: "btn btn-primary btn-block"
+    %h3 Delete account
+    %p
+      #{button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-block"}

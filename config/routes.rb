@@ -3,14 +3,15 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+    #
+  devise_for :users, controllers: {registrations: "users/registrations"}
+
   root 'static_pages#home'
 
   get 'guide/' => 'static_pages#guide'
   get 'question/' => 'questions#random'
   post 'question/check' => 'questions#check'
   get 'question/explain' => 'questions#explain'
-
-  devise_for :users, controllers: {registrations: "users/registrations"}
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

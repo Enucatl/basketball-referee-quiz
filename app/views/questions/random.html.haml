@@ -7,7 +7,7 @@
           =@question.text
           [<strong>#{@question.rating.to_i}</strong>]
       .list-group
-        =render @question.answers
+        =render @answers
         =hidden_field_tag "time", 0
       .panel-footer
         .btn-group{data: {toggle: "buttons"}}

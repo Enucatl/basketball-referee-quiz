@@ -4,6 +4,7 @@ class QuestionsController < ApplicationController
 
     def random
         @question = Question.order_by_rand.first
+        @answers = @question.answers.shuffle
         @t0 = Result::get_t0
         @if_win = Glicko2::update_rating(
             current_user.rating,
