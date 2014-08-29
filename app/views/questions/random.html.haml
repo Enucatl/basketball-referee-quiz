@@ -11,7 +11,7 @@
         =hidden_field_tag "time", 0
       .panel-footer
         .btn-group{data: {toggle: "buttons"}}
-          %label.btn.btn-default
+          %label.btn.btn-primary
             =check_box_tag "is_last_question"
             This is my last question
   .col-sm-4.col-md-3
@@ -40,3 +40,12 @@
             %td failed
             %td
               =@if_lose.round(1)
+
+:coffee
+  $ ->
+      time_started = new Date()
+      $("input:radio").click ->
+          time_ended = new Date()
+          answer_time = (time_ended - time_started) / 1000
+          $("input#time").val answer_time
+          $(this).closest("form").submit()

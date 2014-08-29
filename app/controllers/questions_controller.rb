@@ -58,9 +58,9 @@ class QuestionsController < ApplicationController
             deviation: new_question_deviation,
             volatility: new_question_volatility)
         if answer.is_correct? and current_user.break_on_success
-            redirect_to action: "explain", question_id: @question.id, selected_answer_id: params[:answer_id]
+            redirect_to action: "explain", question_id: question.id, selected_answer_id: params[:answer_id]
         elsif not answer.is_correct? and current_user.break_on_failure
-            redirect_to action: "explain", question_id: @question.id, selected_answer_id: params[:answer_id]
+            redirect_to action: "explain", question_id: question.id, selected_answer_id: params[:answer_id]
         elsif params[:is_last_question]
             redirect_to root_path
         else
@@ -71,6 +71,6 @@ class QuestionsController < ApplicationController
     def explain
         @question = Question.find params[:question_id]
         @answers = @question.answers
-        @selected_answer_id = params[:selected_answer_id]
+        @selected_answer_id = params[:selected_answer_id].to_i
     end
 end

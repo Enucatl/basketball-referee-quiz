@@ -26,9 +26,9 @@ module Result
         if result == 1
             return @@t0
         elsif result < 1 and result > 0.5
-            return 2 * @@delta * (1 - result)
+            return @@t0 + 2 * @@delta * (1 - result)
         else
-            return -@@tau * Math.log(2 * result) 
+            return @@t1 - @@tau * Math.log(2 * result) 
         end
     end
 

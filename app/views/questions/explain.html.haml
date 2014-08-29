@@ -6,9 +6,9 @@
           =@question.text
           [<strong>#{@question.rating.to_i}</strong>]
       .list-group
-        - @answers.each |answer| do
+        - @answers.each do |answer|
           %div{class: "list-group-item " + explain_answer_class(@selected_answer_id, answer.id, answer.is_correct?)}
-            answer.text
+            =answer.text
       .panel-footer
         =@question.explanation
-        =link_to "next question", question_path, class: "btn btn-default"
+        =link_to "next question", question_path, class: "btn btn-primary"
