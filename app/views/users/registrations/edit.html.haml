@@ -26,17 +26,15 @@
     %h3 Quiz settings
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, class: "form-horizontal") do |f|
       .form-group
-        = devise_error_messages!
-      .input-group
-        %span.input-group-addon
-          = check_box_tag "break_on_success", "yes", current_user.break_on_success
-        break on success
-      .input-group
         .checkbox
-          %span.input-group-addon
-            %label
-              = check_box_tag "break_on_failure", "yes", current_user.break_on_failure
-              break on failure
+          %label
+            = f.check_box :break_on_success, checked: current_user.break_on_success
+            break on success
+      .form-group
+        .checkbox
+          %label
+            = f.check_box :break_on_failure, checked: current_user.break_on_failure
+            break on failure
       .form-group
         = f.submit "Update", class: "btn btn-primary btn-block"
     %h3 Delete account

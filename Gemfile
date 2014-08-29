@@ -40,6 +40,7 @@ gem 'haml-rails'
 gem 'erb2haml', :group => :development
 
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 gem 'pg'
 
 gem 'devise'
