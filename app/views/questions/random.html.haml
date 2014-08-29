@@ -2,18 +2,14 @@
   .col-sm-8.col-md-9
     =form_tag({controller: "questions", action: "check"},
       {class: "panel panel-primary", method: "post"}) do
+      =hidden_field_tag "time", 0
       .panel-heading
         %h3.panel-title
           =@question.text
           [<strong>#{@question.rating.to_i}</strong>]
       .list-group
         =render @answers
-        =hidden_field_tag "time", 0
-      .panel-footer
-        .btn-group{data: {toggle: "buttons"}}
-          %label.btn.btn-primary
-            =check_box_tag "is_last_question"
-            This is my last question
+
   .col-sm-4.col-md-3
     .panel.panel-primary
       .panel-heading
@@ -40,6 +36,13 @@
             %td failed
             %td
               =@if_lose.round(1)
+
+.row
+  .col-sm-8.col-md-9
+    .btn-group{data: {toggle: "buttons"}}
+      %label.btn.btn-primary
+        =check_box_tag "is_last_question"
+        This is my last question
 
 :coffee
   $ ->
