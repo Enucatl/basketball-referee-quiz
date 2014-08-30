@@ -5,11 +5,11 @@ module Result
     #be 1:0. After t0 seconds the result is linearly decreasing with 1/2:1/2
     #at t1 seconds. After t1 seconds the decrease of the result is
     #exponential with constant tau
-    @@t0 = 1
-    @@t1 = 3
+    @@t0 = 15
+    @@t1 = 35
     @@delta = @@t1 - @@t0
     @@m = - 0.5 / @@delta
-    @@tau = 5
+    @@tau = 15
     @@k = - 1 / @@tau
 
     def self.get_result(time)
