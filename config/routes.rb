@@ -10,10 +10,13 @@ Rails.application.routes.draw do
 
   get 'guide/' => 'static_pages#guide'
   get 'about/' => 'static_pages#about'
-  get 'question/' => 'questions#random'
+  get 'question/random' => 'questions#random'
   post 'question/check' => 'questions#check'
   get 'question/explain' => 'questions#explain'
 
+  resources :questions do
+      resources :answers
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

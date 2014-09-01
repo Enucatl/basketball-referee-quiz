@@ -2,8 +2,8 @@ class QuestionsController < ApplicationController
 
     before_action :authenticate_user!
 
-    def random
-        @question = Question.order_by_rand.first
+    def show
+        @question = Question.find params[:id] 
         @answers = @question.answers.shuffle
         @t0 = Result::get_t0
         @if_win = Glicko2::update_rating(
@@ -25,6 +25,11 @@ class QuestionsController < ApplicationController
                 @question.rating,
                 @question.deviation)
         @t_even = Result::get_time(Glicko2::e(mu, mu_opp, phi_opp))
+    end
+
+    def random
+        @question = Question.order_by_rand.first
+        redirect_to @question
     end
 
     def check
