@@ -9,9 +9,22 @@
     %p
       Once you
       =link_to "log in", new_user_session_path
-      you can click on
-      =link_to "questions", question_path
-      to start answering questions. Simply click on the answer that you think is correct.
+      you can 
+      =link_to "start answering questions.", question_path
+      Simply click on the answer that you think is correct.
+
+    %h2 My answer was right!
+    %p
+      On a wrong answer, the game stops by default and shows why the answer is
+      what we think it is. References to the 
+      %a{href: "http://www.fiba.com/asp_scripts/downMana.asp?fileID=4530"} rulebook 2014 (pdf)
+      are included as R<em>n</em> where <em>n</em> is the article number.
+      References to the
+      %a{href: "http://www.fiba.com/asp_scripts/downMana.asp?fileID=4595"} official interpretations 2014 (pdf)
+      are shown as I<em>n</em> where <em>n</em> is the section number in the file.
+    %p
+      If you still consider a question to be incorrect, please
+      =link_to "tell us!", about_path
 
     %h2 Rating
     %p

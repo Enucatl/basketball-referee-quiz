@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'static_pages#home'
 
   get 'guide/' => 'static_pages#guide'
+  get 'about/' => 'static_pages#about'
   get 'question/' => 'questions#random'
   post 'question/check' => 'questions#check'
   get 'question/explain' => 'questions#explain'

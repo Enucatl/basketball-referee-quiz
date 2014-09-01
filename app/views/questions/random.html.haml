@@ -27,15 +27,15 @@
             %td
               #{@t0.to_i} s
             %td
-              +#{@if_win.round(1)}
+              +#{@if_win.to_i}
           %tr
             %td
-              #{@t_even.round(1)} s
+              #{@t_even.to_i} s
             %td unchanged
           %tr
             %td failed
             %td
-              =@if_lose.round(1)
+              =@if_lose.to_i
 
 .row
   .col-sm-8.col-md-9

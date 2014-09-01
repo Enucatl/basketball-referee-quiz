@@ -7,4 +7,7 @@ class StaticPagesController < ApplicationController
         @t1 = Result::get_t1
         @tau = Result::get_tau
     end
+
+    def about
+    end
 end
