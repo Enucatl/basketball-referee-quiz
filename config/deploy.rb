@@ -56,6 +56,13 @@ namespace :deploy do
     end
   end
 
+  %w[start stop restart].each do |command|
+    desc "#{command} unicorn server"
+    task command, roles: :app, except: {no_release: true} do
+        run "#{current_path}/config/unicorn_init.sh #{command}"
+    end
+  end
+
   after :publishing, :restart
 
   after :restart, :clear_cache do
