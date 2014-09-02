@@ -1,15 +1,23 @@
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: basketball_quiz_dev
-  pool: 5
-  username: basketball_quiz
-  password: basketball_quiz
+    adapter: postgresql
+    encoding: unicode
+    database: basketball_quiz_dev
+    pool: 5
+    username: basketball_quiz
+    password: 
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  database: basketball_quiz_test
-  pool: 5
-  username: basketball_quiz
-  password: basketball_quiz
+    adapter: postgresql
+    encoding: unicode
+    database: basketball_quiz_test
+    pool: 5
+    username: basketball_quiz
+    password: 
+
+production:
+    adapter: postgresql
+    encoding: unicode
+    database: basketball_quiz_production
+    pool: 5
+    username: basketball_quiz
+    password:
