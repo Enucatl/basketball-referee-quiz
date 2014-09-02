@@ -19,5 +19,5 @@ production:
     encoding: unicode
     database: basketball_quiz_production
     pool: 5
-    username: basketball_quiz
+    username: deploy
     password:
