@@ -9,8 +9,8 @@ pid "/home/deploy/basketball-referee-quiz/current/tmp/pids/unicorn.pid"
 # Path to logs
 # stderr_path "/path/to/log/unicorn.log"
 # stdout_path "/path/to/log/unicorn.log"
-stderr_path "/home/deploy/basketball-referee-quiz/log/unicorn.log"
-stdout_path "/home/deploy/basketball-referee-quiz/log/unicorn.log"
+stderr_path "/home/deploy/basketball-referee-quiz/current/log/unicorn.log"
+stdout_path "/home/deploy/basketball-referee-quiz/current/log/unicorn.log"
 
 # Unicorn socket
 listen "/tmp/unicorn.basketball-referee-quiz.sock"
