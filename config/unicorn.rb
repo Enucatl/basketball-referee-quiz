@@ -1,6 +1,6 @@
 # Set the working application directory
 # working_directory "/path/to/your/app"
-working_directory "/home/deploy/basketball-referee-quiz"
+working_directory "/home/deploy/basketball-referee-quiz/current"
 
 # Unicorn PID file location
 # pid "/path/to/pids/unicorn.pid"
