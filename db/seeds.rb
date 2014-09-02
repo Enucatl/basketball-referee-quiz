@@ -20,7 +20,13 @@ unless Rails.env.production?
     )
 end
 
-ARGV[1..-1].each do |filename|
+if Rails.env.production?
+    files = Dir.glob("~/basketball-referee-generator/art*.json")
+else
+    files = ARGV[1..-1]
+end
+
+files.each do |filename|
     text = File.read filename
     data = JSON.parse text
     data.each do |d|
