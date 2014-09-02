@@ -3,6 +3,7 @@ lock '3.2.1'
 
 set :application, 'basketball-referee-quiz'
 set :deploy_user, 'deploy'
+set :deploy_via, :remote_cache
 set :repo_url, 'https://github.com/Enucatl/basketball-referee-quiz.git'
 
 # Default branch is :master
@@ -24,7 +25,7 @@ set :deploy_to, '/home/deploy/basketball-referee-quiz'
 # set :pty, true
 
 # Default value for :linked_files is []
-set :linked_files, %w{config/database.yml}
+#set :linked_files, %w{config/database.yml}
 
 # Default value for linked_dirs is []
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
