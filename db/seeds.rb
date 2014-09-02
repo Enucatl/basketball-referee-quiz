@@ -21,7 +21,7 @@ unless Rails.env.production?
 end
 
 if Rails.env.production?
-    files = Dir.glob("~/basketball-referee-generator/art*.json")
+    files = Dir.glob("/home/deploy/basketball-referee-generator/art*.json")
 else
     files = ARGV[1..-1]
 end
