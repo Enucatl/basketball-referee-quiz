@@ -31,7 +31,7 @@ set :deploy_to, '/home/deploy/basketball-referee-quiz'
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # Default value for default_env is {}
-set :default_env, { path: "$PATH" }
+set :default_env, { path: "$HOME/.rvm/bin:$PATH" }
 
 # setup rvm.
 set :rvm_ruby_version, '2.1.2'
