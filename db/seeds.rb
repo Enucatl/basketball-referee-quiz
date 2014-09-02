@@ -6,17 +6,19 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(
-    username: "CiccioPasticcio",
-    email: "ciccio@pst.com",
-    password: "FxE6YDOLR8omCm5leRdN",
-    password_confirmation: "FxE6YDOLR8omCm5leRdN",
-    rating: 1500,
-    deviation: 350,
-    volatility: 0.06,
-    break_on_success: false,
-    break_on_failure: true
-)
+unless Rails.env.production?
+    User.create(
+        username: "CiccioPasticcio",
+        email: "ciccio@pst.com",
+        password: "FxE6YDOLR8omCm5leRdN",
+        password_confirmation: "FxE6YDOLR8omCm5leRdN",
+        rating: 1500,
+        deviation: 350,
+        volatility: 0.06,
+        break_on_success: false,
+        break_on_failure: true
+    )
+end
 
 ARGV[1..-1].each do |filename|
     text = File.read filename
