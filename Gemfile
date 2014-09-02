@@ -32,8 +32,6 @@ gem 'factory_girl_rails',        group: :development
 gem 'unicorn'
 
 # Use Capistrano for deployment
-gem 'capistrano', group: :development
-gem 'capistrano-rvm', group: :development
 gem 'capistrano-rails', group: :development
 
 # Use debugger
