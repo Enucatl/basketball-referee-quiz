@@ -42,6 +42,7 @@ gem 'capistrano-rails', group: :development
 
 gem 'haml-rails'
 gem 'erb2haml', :group => :development
+gem 'rest-client', :group => :development
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'

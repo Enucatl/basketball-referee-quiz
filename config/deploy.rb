@@ -1,6 +1,3 @@
-# config valid only for Capistrano 3.1
-lock '3.2.1'
-
 set :application, 'basketball-referee-quiz'
 set :deploy_user, 'deploy'
 set :deploy_via, :remote_cache
@@ -32,9 +29,6 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 
 # Default value for default_env is {}
 set :default_env, { path: "$HOME/.rvm/bin:$PATH" }
-
-# setup rvm.
-set :rvm_ruby_version, '2.1.2'
 
 # how many old releases do we want to keep
 set :keep_releases, 5
