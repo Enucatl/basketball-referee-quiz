@@ -8,7 +8,7 @@ host = YAML.load_file("config/secrets.yml")["development"]["droplet_ip"]
 
 role :app, "deploy@#{host}"
 role :web, "deploy@#{host}"
-role :db,  "deploy@#{host}"
+role :root,  "root@#{host}"
 
 
 # Extended Server Syntax
@@ -17,7 +17,7 @@ role :db,  "deploy@#{host}"
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
+#server 'example.com', user: 'deploy', roles: %w{web app}, my_property: :my_value
 
 
 # Custom SSH Options

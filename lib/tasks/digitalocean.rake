@@ -34,6 +34,7 @@ namespace :digitalocean do
     creation_response = JSON.parse(RestClient.post(url, body, headers))
     response = {}
     p "Creating droplet..."
+    p creation_response
     loop do
       sleep 5
       response = JSON.parse(RestClient.get("#{url}/#{creation_response["droplet"]["id"]}", headers))
