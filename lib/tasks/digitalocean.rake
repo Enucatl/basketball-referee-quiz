@@ -15,7 +15,7 @@ end
 
 namespace :digitalocean do
 
-  desc "create a droplet on rake through the API"
+  desc "create a droplet through the API"
   task :create_droplet do
     secrets = get_secrets()
     token = secrets["development"]["digitalocean_token"]
@@ -43,4 +43,21 @@ namespace :digitalocean do
     secrets["development"]["droplet_id"] = response["droplet"]["id"]
     save_secrets secrets
   end
+
+  desc "destroy the droplet through the API"
+  task :destroy_droplet do
+    secrets = get_secrets()
+    droplet_id = secrets["development"]["droplet_id"]
+    token = secrets["development"]["digitalocean_token"]
+    url = "https://api.digitalocean.com/v2/droplets/#{droplet_id}"
+    headers = {
+      Authorization: "Bearer #{token}"
+    }
+    RestClient.delete(url, headers)
+    p "Destroying droplet..."
+    secrets["development"]["droplet_ip"] = ""
+    secrets["development"]["droplet_id"] = ""
+    save_secrets secrets
+  end
+
 end

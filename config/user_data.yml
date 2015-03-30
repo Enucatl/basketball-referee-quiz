@@ -6,3 +6,4 @@ runcmd:
 packages:
     - puppet
     - git
+    - ruby

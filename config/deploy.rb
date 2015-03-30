@@ -35,9 +35,7 @@ set :keep_releases, 5
 
 # which config files should be made executable after copying
 # by deploy:setup_config
-set(:executable_config_files, %w(
-  unicorn_init.sh
-    ))
+set(:executable_config_files, %w(unicorn_init.sh))
 
 
 namespace :deploy do
