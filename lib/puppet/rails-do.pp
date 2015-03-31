@@ -2,9 +2,7 @@ package { 'fail2ban':
   ensure => present,
 }
 
-package { 'postgresql-server-dev-all':
-  ensure => present,
-}
+class { 'locales': }
 
 package { 'nodejs':
   ensure => present,
@@ -28,7 +26,7 @@ ssh_authorized_key { 'home_computer_key':
 ssh_authorized_key { 'office_computer_key':
   ensure => present,
   user => 'deploy',
-  key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDoTOwPqWiMsVVrLPVUA8wfMm9wnqFIVnXkKic3wDzsQOMmUFb+PbuPcq0P4SU7fk854fGW8kX+4mN/6yFbV9xH4nbSbqyon7Txg0jljadoYdhDvqzG55vKwt36guibTusaApCwx2zuzN+iuQ+yiHlFInVf/dpn4of6vE9mowQjYf4P0LrWRK0seZvzuLawHsS9m0DpBXn2I9M4ybf0HwOk0+FLrjzd8nebiUrUD8fSegqIsuN2jAj+j2estXZuCbInRcRS44wEKMLBhdUu1qom7VTqANqvFHB1O6Eodgsu2tuzN8ONIRwM1XtHGo4YvDDAip8igswvfsjoThcLC5FV',
+  key => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDJCbc4Sv6r8NcQSNc8T1dLoYnLDsNO0Kd/AwSIXE6UjF2X/gC1+9bLtIn4wUppLJzr85+2ltDEBl2peROJRuCk8uFVye1ip5Gyz5JLnpeIzUxYIowa780KXgUdbZdlp/P6uNXlbEGqo9xAUHd2sPfGaVRG7zsuRiolzAZTp/FeLtfJLwd7jp09dV08xUj2tHdFicnJNnnJTmx+3YdSPq0VOpXlvYc9xHms+VasVhg/bLl6IfqXxZ1cC0BSUfkQrIIz+QUZP8vNe+VD6wJaq4vGBX49IrRVMqnZIZbplMJKQcZfR/hGzOWRn7dZ/b8ZYykR618yb4FHYTZQCvS89Kuj',
   type => 'rsa',
 }
 
@@ -67,8 +65,8 @@ ufw::allow { "allow-https":
 class { 'ssh::server':
   options => {
     'PasswordAuthentication' => 'no',
-    'PermitRootLogin' => 'no',
-    'AllowUsers' => 'deploy@*.dynamic.hispeed.ch deploy@pc9689.psi.ch',
+    #'PermitRootLogin' => 'no',
+    #'AllowUsers' => 'deploy@*.dynamic.hispeed.ch deploy@pc9689.psi.ch',
   },
 }
 
@@ -83,6 +81,7 @@ file { ['/home/deploy/basketball-referee-quiz',
 }
 
 class { 'postgresql::server':
+  require => Class['locales'],
 }
 
 postgresql::server::db { 'basketball_quiz_production':
@@ -90,9 +89,19 @@ postgresql::server::db { 'basketball_quiz_production':
   password => '',
 }
 
+exec { "gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3":
+  provider => shell,
+  logoutput => true,
+  cwd => "/home/deploy",
+  user => "deploy",
+  before => Single_user_rvm::Install["deploy"],
+  unless => "gpg --list-keys 409B6B1796C275462A1703113804BB82D39DC0E3",
+  require => User["deploy"],
+}
+
 single_user_rvm::install { 'deploy': }
 
-single_user_rvm::install_ruby { 'ruby-2.2.1':
+single_user_rvm::install_ruby { '2.2.1':
   user => 'deploy'
 }
 
@@ -102,7 +111,7 @@ exec { "su -l deploy -c 'rvm get stable --auto-dotfiles; rvm use --default ruby-
   logoutput => true,
   cwd => "/home/deploy",
   unless => "su -l deploy -c 'rvm current' | grep ruby-2.2.1",
-  require => Single_user_rvm::Install_ruby['ruby-2.2.1'],
+  require => Single_user_rvm::Install_ruby['2.2.1'],
 }
 
 class { 'nginx': }

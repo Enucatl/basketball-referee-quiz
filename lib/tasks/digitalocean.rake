@@ -28,6 +28,7 @@ namespace :digitalocean do
       ssh_keys: [307676, 322283],
       user_data: File.read("config/user_data.yml"),
     }
+    p body
     headers = {
       Authorization: "Bearer #{token}"
     }
@@ -40,6 +41,7 @@ namespace :digitalocean do
       response = JSON.parse(RestClient.get("#{url}/#{creation_response["droplet"]["id"]}", headers))
       break if response["droplet"]["status"] == "active"
     end
+    p response
     secrets["development"]["droplet_ip"] = response["droplet"]["networks"]["v4"][0]["ip_address"]
     secrets["development"]["droplet_id"] = response["droplet"]["id"]
     save_secrets secrets

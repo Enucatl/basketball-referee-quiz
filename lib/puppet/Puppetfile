@@ -1,0 +1,13 @@
+moduledir "/etc/puppet/modules"
+
+mod "puppetlabs/stdlib"
+mod "puppetlabs/concat"
+mod "puppetlabs/apt"
+mod "attachmentgenie/ufw"
+mod "justinclayton/sudo"
+mod "saz/ssh"
+mod "saz/locales"
+mod "puppetlabs/postgresql"
+mod "puppetlabs/vcsrepo"
+mod "eirc/single_user_rvm"
+mod "jfryman/nginx"

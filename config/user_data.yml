@@ -1,14 +1,6 @@
-#cloud-config
-runcmd:
-    - wget "https://apt.puppetlabs.com/puppetlabs-release-trusty.deb"
-    - dpkg -i puppetlabs-release-trusty.deb
-    - apt-get update
-    - apt-get install puppet git ruby
-    - puppet module install puppetlabs-apt
-    - puppet module install attachmentgenie-ufw
-    - puppet module install justinclayton-sudo
-    - puppet module install saz-ssh
-    - puppet module install puppetlabs-postgresql
-    - puppet module install puppetlabs-vcsrepo
-    - puppet module install eirc-single_user_rvm
-    - puppet module install DracoBlue-nginx
+#!/usr/bin/env bash
+wget "https://apt.puppetlabs.com/puppetlabs-release-trusty.deb"
+dpkg -i puppetlabs-release-trusty.deb
+apt-get update
+apt-get install -y puppet git ruby
+gem install r10k
