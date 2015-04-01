@@ -2,6 +2,7 @@ set :application, 'basketball-referee-quiz'
 set :deploy_user, 'deploy'
 set :deploy_via, :remote_cache
 set :repo_url, 'https://github.com/Enucatl/basketball-referee-quiz.git'
+set :rvm_roles, [:app, :web]
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call

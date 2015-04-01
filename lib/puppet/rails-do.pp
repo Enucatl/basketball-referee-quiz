@@ -4,6 +4,10 @@ package { 'fail2ban':
 
 class { 'locales': }
 
+package { 'postgresql-server-dev-all':
+  ensure => present,
+}
+
 package { 'nodejs':
   ensure => present,
 }
