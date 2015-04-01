@@ -1,9 +1,10 @@
 .row
   .col-sm-10.col-md-8
     %h1 The FIBA basketball rules challenge
-    %p
-      =link_to "Sign up now", new_user_registration_path, {class: "btn btn-primary"}
-      and test your knowledge of the rules of basketball.
+    - unless user_signed_in?
+      %p
+        =link_to "Sign up now", new_user_registration_path, {class: "btn btn-primary"}
+        and test your knowledge of the rules of basketball.
     %p
       This page is inspired by the 
       %a{href: "http://chess.emrald.net/"} chess tactics server.
