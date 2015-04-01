@@ -22,9 +22,18 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
-gem 'factory_girl_rails',        group: :development
+group :development do
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'spring'
+  gem 'factory_girl_rails'
+  # Use Capistrano for deployment
+  gem 'capistrano-rvm'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'erb2haml'
+  gem 'rest-client'
+  gem 'capistrano-secrets-yml'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -32,17 +41,10 @@ gem 'factory_girl_rails',        group: :development
 # Use unicorn as the app server
 gem 'unicorn'
 
-# Use Capistrano for deployment
-gem 'capistrano-rvm', group: :development
-gem 'capistrano-bundler', group: :development
-gem 'capistrano-rails', group: :development
-
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
 gem 'haml-rails'
-gem 'erb2haml', :group => :development
-gem 'rest-client', :group => :development
 
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
