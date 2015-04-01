@@ -6,6 +6,9 @@ tested with 2.2.1
 
 ## System dependencies
 puppet recipe included in [rails-do.pp](lib/puppet/rails-do.pp)
+```bash
+cap staging puppet                         # run the puppet recipe
+```
 
 ## create a digitalocean droplet
 After creating a `config/secrets.yml` file containing the
