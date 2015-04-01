@@ -11,9 +11,10 @@ puppet recipe included in [rails-do.pp](lib/puppet/rails-do.pp)
 After creating a `config/secrets.yml` file containing the
 `development.digitalocean_token` access token for the api, you can use the
 capistrano tasks
-:::bash
-    cap staging digitalocean:create_droplet    # create a droplet through the API
-    cap staging digitalocean:destroy_droplet   # destroy the droplet through the API
+```bash
+cap staging digitalocean:create_droplet    # create a droplet through the API
+cap staging digitalocean:destroy_droplet   # destroy the droplet through the API
+```
     
 ## Database initialization
 `cap production setup`
