@@ -163,3 +163,10 @@ nginx::resource::location { 'basketball-referee-quiz-unicorn-location':
     proxy_pass => 'http://unicorn'
   },
 }
+
+vcsrepo { "/home/deploy/basketball-referee-generator":
+  ensure   => present,
+  provider => git,
+  source   => "https://github.com/Enucatl/basketball-referee-generator.git",
+  user => "deploy"
+}

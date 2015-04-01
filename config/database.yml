@@ -3,7 +3,7 @@ development:
     encoding: unicode
     database: basketball_quiz_dev
     pool: 5
-    username: basketball_quiz
+    username: basketball
     password: 
 
 test:
@@ -11,7 +11,7 @@ test:
     encoding: unicode
     database: basketball_quiz_test
     pool: 5
-    username: basketball_quiz
+    username: basketball
     password: 
 
 production:
