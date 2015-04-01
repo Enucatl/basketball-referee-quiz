@@ -35,6 +35,7 @@ class QuestionsController < ApplicationController
     def check
         answer = Answer.find(params[:answer_id])
         question = answer.question
+        p "IS LAST?", params[:is_last_question]
         if answer.is_correct?
             result = Result::get_result params[:time].to_f
         else
