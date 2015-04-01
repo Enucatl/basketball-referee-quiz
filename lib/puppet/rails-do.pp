@@ -69,8 +69,8 @@ ufw::allow { "allow-https":
 class { 'ssh::server':
   options => {
     'PasswordAuthentication' => 'no',
-    #'PermitRootLogin' => 'no',
-    #'AllowUsers' => 'deploy@*.dynamic.hispeed.ch deploy@pc9689.psi.ch',
+    'PermitRootLogin' => 'no',
+    'AllowUsers' => 'deploy@*.dynamic.hispeed.ch deploy@pc9689.psi.ch',
   },
 }
 
