@@ -33,6 +33,7 @@ group :development do
   gem 'erb2haml'
   gem 'rest-client'
   gem 'capistrano-secrets-yml'
+  gem 'capistrano-rails-console'
 end
 
 # Use ActiveModel has_secure_password
