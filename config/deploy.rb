@@ -9,6 +9,8 @@ set :rvm_roles, [:app, :web]
 
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/home/deploy/basketball-referee-quiz'
+set :bundle_dir, ""
+set :bundle_flags, ""
 
 # Default value for :scm is :git
 # set :scm, :git
